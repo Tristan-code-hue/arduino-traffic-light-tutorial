@@ -1,6 +1,6 @@
 # Arduino Traffic Light Tutorial
 
-This project demonstrates how to build a simple traffic light using an Arduino Uno, three LEDs, and three resistors.
+This project demonstrates how to build a simple traffic light using an Arduino Uno R3, three LEDs, and three resistors.
 
 ## Parts Required
 
