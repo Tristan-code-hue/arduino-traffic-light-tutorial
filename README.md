@@ -40,6 +40,49 @@ The traffic light operates in this order:
 3. Red turns on for 5 seconds.
 4. The sequence repeats.
 
+## Arduino Code
+
+The complete Arduino sketch is available in [`traffic_light.ino`](traffic_light.ino). It configures pins 8–10 as outputs and uses `digitalWrite()` to turn each LED on or off. The `delay()` calls control how long each light remains on.
+
+```cpp
+const int redLed = 10;
+const int yellowLed = 9;
+const int greenLed = 8;
+
+void setup() {
+  pinMode(redLed, OUTPUT);
+  pinMode(yellowLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
+}
+
+void loop() {
+  // Green light: traffic may proceed.
+  digitalWrite(greenLed, HIGH);
+  digitalWrite(yellowLed, LOW);
+  digitalWrite(redLed, LOW);
+  delay(5000);
+
+  // Yellow light: prepare to stop.
+  digitalWrite(greenLed, LOW);
+  digitalWrite(yellowLed, HIGH);
+  digitalWrite(redLed, LOW);
+  delay(2000);
+
+  // Red light: traffic must stop.
+  digitalWrite(greenLed, LOW);
+  digitalWrite(yellowLed, LOW);
+  digitalWrite(redLed, HIGH);
+  delay(5000);
+}
+```
+
+### How the Code Works
+
+- `setup()` runs once when the Arduino starts and sets the LED pins as outputs.
+- `loop()` runs repeatedly, switching through the green, yellow, and red phases.
+- `HIGH` turns an LED on and `LOW` turns it off.
+- The delays are measured in milliseconds: `5000` is 5 seconds and `2000` is 2 seconds.
+
 ## Uploading the Program
 
 1. Open `traffic_light.ino` in the Arduino IDE.
@@ -69,3 +112,7 @@ The traffic light operates in this order:
 ### The LEDs are too bright or too dim
 
 Use a resistor between 220 Ω and 1 kΩ. Never operate an LED without a resistor.
+
+## License
+
+This project is provided for educational purposes.
