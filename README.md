@@ -112,7 +112,3 @@ void loop() {
 ### The LEDs are too bright or too dim
 
 Use a resistor between 220 Ω and 1 kΩ. Never operate an LED without a resistor.
-
-## License
-
-This project is provided for educational purposes.
